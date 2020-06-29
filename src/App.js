@@ -26,9 +26,6 @@ class App extends Component {
       items: state.items.concat(newItemAdded),
       text: ''
     }));
-    console.log('added')
-
-
   }
 
   handleChange(event) {
@@ -36,9 +33,13 @@ class App extends Component {
   }
 
   render() {
+    const styles = {
+      listStyleType: 'none'
+
+    }
     let list = this.state.items.map((item) => {
-      return (<ul>
-        <li key={item.id} > {item.text} </li>
+      return (<ul key={item.id} style={styles} >
+        <li> {item.text} </li>
       </ul>);
 
     });
@@ -50,6 +51,7 @@ class App extends Component {
           currentValue={this.state.text}
           handleChange={this.handleChange.bind(this)}
           addItem={this.addItemHandler}
+          addStat={this.state.items.length + 1}
         />
         {list}
       </div>
