@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../ListItem/List.module.css';
+import FlipMove from 'react-flip-move';
 
 const listItems = (props) => {
     const items = props.items;
@@ -19,7 +20,9 @@ const listItems = (props) => {
     });
     return (
         <div className="ListItem">
-            {listItems}
+            <FlipMove duration={300} easing="ease-in-out">
+                {listItems}
+            </FlipMove>
         </div>
     );
 }
