@@ -22,10 +22,11 @@ class App extends Component {
       text: this.state.text,
       id: Date.now()
     };
-    this.setState(state => ({
-      items: state.items.concat(newItemAdded),
+    this.setState({
+      items: this.state.items.concat(newItemAdded),
       text: ''
-    }));
+    });
+
   }
 
   handleChange(event) {
