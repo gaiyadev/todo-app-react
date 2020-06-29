@@ -42,12 +42,23 @@ class App extends Component {
     this.setState({
       currentItem: {
         text: event.target.value,
-        id: Date.now() * 40
+        id: Date.now()
       }
     });
   }
 
-  render() { 
+  deleteItemHadler = (id) => {
+    const filterItems = [...this.state.items];
+    let l = filterItems.splice(id, 1);
+    console.log(l);
+
+    this.setState({
+      items: filterItems
+
+    });
+  }
+
+  render() {
     return (
       <div className="App">
         <h2>Todo Application</h2>
@@ -55,9 +66,9 @@ class App extends Component {
           currentValue={this.state.currentItem.text}
           handleChange={this.handleChange.bind(this)}
           addItem={this.addItemHandler}
-          addStat={this.state.items.length + 1}
+          addStat={this.state.items.length + 0}
         />
-        <ListItems items={this.state.items}> </ListItems>
+        <ListItems deleteItem={this.deleteItemHadler.bind(this)} items={this.state.items} />
       </div>
     );
   }

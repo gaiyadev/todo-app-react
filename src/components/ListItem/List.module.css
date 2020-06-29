@@ -1,0 +1,27 @@
+.List {
+    color: #ffffff;
+    width: 300px;
+    background-color: #bf07ac;
+    height: 50px;
+    margin: 20px auto;
+    border-radius: 5px;
+}
+
+.List p {
+    padding: 10px;
+    position: relative;
+}
+
+.List i {
+    position: absolute;
+    right: 10px;
+    padding: 10px;
+}
+.fa {
+    margin: 0px 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.fa:hover {
+    cursor: pointer;
+}
