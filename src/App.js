@@ -34,7 +34,6 @@ class App extends Component {
       }
 
     });
-
   }
 
   // Handing onChange behaviour of the input field
@@ -47,17 +46,29 @@ class App extends Component {
     });
   }
 
+  //deleting item
   deleteItemHadler = (id) => {
-    const filterItems = [...this.state.items];
-    let l = filterItems.splice(id, 1);
-    console.log(l);
-
+    const filterArr = [...this.state.items];
+    const filterItems = filterArr.filter(item =>
+      item.id !== id);
     this.setState({
       items: filterItems
-
     });
   }
 
+  setUpdateHandler = (text, id) => {
+    const items = [...this.state.items];
+    items.map(item => {
+      if (item.id === id) {
+        item.text = text;
+      }
+      this.setState({
+        items: items
+      });
+    });
+
+
+  }
   render() {
     return (
       <div className="App">
@@ -68,7 +79,10 @@ class App extends Component {
           addItem={this.addItemHandler}
           addStat={this.state.items.length + 0}
         />
-        <ListItems deleteItem={this.deleteItemHadler.bind(this)} items={this.state.items} />
+        <ListItems
+          deleteItem={this.deleteItemHadler.bind(this)}
+          items={this.state.items}
+          setUpdate={this.setUpdateHandler.bind(this)} />
       </div>
     );
   }

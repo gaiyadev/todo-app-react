@@ -25,3 +25,14 @@
 .fa:hover {
     cursor: pointer;
 }
+
+.List p input {
+    background-color: transparent;
+    border: 0px;
+    color: #ffffff;
+    font-size: 18px;
+
+}
+.List p input:focus {
+   outline: none;
+}
