@@ -6,9 +6,8 @@ const addItems = (props) => {
     return (
         <div className={styles.Form}>
             <form id="todo-form" onSubmit={props.addItem}>
-                {/* <label>Items</label> &nbsp; */}
                 <input
-                    placeholder="Enter Text"
+                    placeholder="Enter Todo Item"
                     value={props.currentValue}
                     onChange={props.handleChange}
                     type="text" name="add" />

@@ -1,13 +1,18 @@
 import React from 'react';
-const list = () => {
+import styles from '../ListItem/List.module.css';
+
+const listItem = (props) => {
+    const items = props.items;
+    const listItems = items.map((item) => {
+        return <div className="list" key={item.id}>
+            <p>{item.text}</p>
+        </div>
+    });
     return (
         <div>
-            <ul>
-                <li>food</li>
-                <li>food</li>
-            </ul>
+            {listItems}
         </div>
     );
 }
 
-export default list;
+export default listItem;

@@ -1,60 +1,63 @@
 import React, { Component } from 'react';
 import './App.css';
 import AddItems from './components/InputTask/Task';
+import ListItems from './components/ListItem/List';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       items: [],
-      text: ''
+      currentItem: {
+        text: '',
+        id: ''
+      }
+
     }
 
   }
 
+  //Handling submitting action
   addItemHandler = (event) => {
     event.preventDefault();
-    if (this.state.text.length === 0) {
+    if (this.state.currentItem.text.length === 0) {
       return;
     }
 
-    const newItemAdded = {
-      text: this.state.text,
-      id: Date.now()
-    };
+    const newItemAdded = this.state.currentItem;
+    const newItems = [...this.state.items, newItemAdded];
     this.setState({
-      items: this.state.items.concat(newItemAdded),
-      text: ''
+      items: newItems,
+      currentItem: {
+        text: '',
+        id: ''
+      }
+
     });
 
   }
 
+  // Handing onChange behaviour of the input field
   handleChange(event) {
-    this.setState({ text: event.target.value });
+    this.setState({
+      currentItem: {
+        text: event.target.value,
+        id: Date.now() * 40
+      }
+    });
   }
 
-  render() {
-    const styles = {
-      listStyleType: 'none'
-
-    }
-    let list = this.state.items.map((item) => {
-      return (<ul key={item.id} style={styles} >
-        <li> {item.text} </li>
-      </ul>);
-
-    });
-
+  render() { 
     return (
       <div className="App">
         <h2>Todo Application</h2>
         <AddItems
-          currentValue={this.state.text}
+          currentValue={this.state.currentItem.text}
           handleChange={this.handleChange.bind(this)}
           addItem={this.addItemHandler}
           addStat={this.state.items.length + 1}
         />
-        {list}
+        <ListItems items={this.state.items}> </ListItems>
       </div>
     );
   }
