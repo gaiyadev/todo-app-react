@@ -47,7 +47,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h2 style={{ color: 'brown', textTransform: 'capitalize' }} >To do App</h2>
+        <h2>Todo Application</h2>
         <AddItems
           currentValue={this.state.text}
           handleChange={this.handleChange.bind(this)}

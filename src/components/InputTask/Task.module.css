@@ -1,0 +1,40 @@
+.Form input {
+    background-color: rgb(27, 112, 137);
+    border:  0px;
+    width: 200px;
+    height: 50px;
+    padding: 0 20px;
+    margin: 20px;
+    font-size: 18px;
+    border-radius: 12px;
+    color: #ffffff;
+}
+.Form input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+   
+}
+.Form input:focus, button:focus {
+   outline: none;
+}
+.Form input:hover {
+    background-color: rgb(27, 112, 137, 0.5);
+}
+.Form button {
+    background-color: rgb(202, 156 , 24);
+    border:  0px;
+    width: 80px;
+    cursor: pointer;
+    font-weight: bolder;
+    height: 50px;
+    padding: 0 20px;
+    margin: 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    color: #ffffff;
+    float: right;
+    margin-right: 20px;
+}
+.Form button:hover {
+    background-color: rgb(202, 156 , 24, 0.5);
+   
+}
