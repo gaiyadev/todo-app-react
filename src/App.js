@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './App.css';
 import AddItems from './components/InputTask/Task';
 import ListItems from './components/ListItem/List';
+import * as actionType from './store/action';
 
 class App extends Component {
   constructor(props) {
@@ -88,4 +90,20 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    allItems: state.items,
+    add: state.text,
+    id: state.id,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddItem: () => dispatch({ type: actionType.ADD_ITEM }),
+    onDeleteItem: () => dispatch({ type: actionType.DELETE_ITEM })
+  };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
